@@ -1,0 +1,116 @@
+---
+import { LanguageSelector } from "astro-i18next/components";
+import { Icon } from "astro-icon";
+// import ThemeSwitcher from "~/components/theme-switcher.astro";
+import { navLinks, socialLinks } from "../../config/links";
+---
+
+<header>
+  <div
+    class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8"
+  >
+    <div class="relative flex items-center justify-between">
+      <div class="flex items-center">
+        <a
+          href="/"
+          aria-label="Company"
+          title="Company"
+          class="inline-flex items-center transition duration-500 text-gray-700 rounded hover:text-gray-900 lg:mr-8 focus:outline-none focus-visible:ring-4 ring-brand"
+        >
+          <Icon name="mdi:discord" class="w-10" />
+        </a>
+        <ul class="flex items-center hidden space-x-6 lg:flex">
+          {
+            navLinks.map(({ title, url }) => (
+              <li>
+                <a
+                  class="font-medium tracking-wide capitalize text-gray-700 transition-colors duration-500 hover:text-gray-900"
+                  href={url}
+                >
+                  {title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <ul class="flex items-center space-x-3 hidden lg:block">
+        <LanguageSelector
+          class="text-gray-900 font-semibold bg-transparent hover:bg-gray-50 border-2"
+        />
+      </ul>
+      <!-- Hamburger btn -->
+      <div class="lg:hidden">
+        <button
+          id="open-btn"
+          aria-label="Open Menu"
+          title="Open Menu"
+          class="flex items-center transition duration-500 rounded focus:outline-none focus:shadow-outline hover:text-white"
+        >
+          <Icon name="mdi:menu" class="h-8" />
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="absolute top-0 right-0 z-20 hidden w-1/2">
+    <div
+      class="h-screen px-4 py-5 text-right bg-brand text-bkg md:px-24 lg:px-8"
+    >
+      <button
+        id="close-btn"
+        aria-label="Close Menu"
+        title="Close Menu"
+        class="mb-4 transition duration-500 rounded focus:outline-none hover:text-white focus:shadow-outline"
+      >
+        <Icon name="mdi:close" class="h-10" />
+      </button>
+
+      <nav class="">
+        <ul class="p-3 space-y-6 border-b border-[#3385FF] md:p-5">
+          {
+            navLinks.map(({ title, url }) => (
+              <li>
+                <a
+                  class="text-2xl font-medium tracking-wide capitalize transition duration-500 hover:text-white "
+                  href={url}
+                >
+                  {title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <p
+          class="p-3 tracking-wider transition duration-500 sm:my-3 hover:text-white md:p-5"
+        >
+          <a href="mailto:info@admin.com">info@admin.com</a>
+        </p>
+        <LanguageSelector
+          class="text-gray-900 font-semibold bg-transparent hover:bg-gray-50 border-2"
+        />
+      </nav>
+    </div>
+  </div>
+</header>
+<script>
+  const btnOpen = document.getElementById("open-btn");
+  const menu = document.getElementById("mobile-menu");
+  const btnClose = document.getElementById("close-btn");
+  const overlay = document.getElementById("overlay");
+
+  btnOpen!.addEventListener("click", navToggle);
+  btnClose!.addEventListener("click", navToggle);
+
+  function navToggle() {
+    menu!.classList.toggle("open");
+    menu!.classList.toggle("hidden");
+    overlay!.classList.toggle("hidden");
+  }
+</script>
+
+<style>
+  .open {
+    display: block;
+  }
+</style>
