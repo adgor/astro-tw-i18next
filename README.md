@@ -1,11 +1,11 @@
 # [Astro](https://astro.build) Multilingual Template
 
-Bootstrapped from their official 'Get started', with:
+Bootstrapped with:
 
 - [Tailwind css](https://tailwindcss.com/) - A utility-first CSS framework for rapidly building custom user interfaces.
 - [astro-i18next](https://www.npmjs.com/package/astro-i18next) - An astro integration of i18next + some utility components to help you translate your astro websites!
 - [Astro Icon](https://www.npmjs.com/package/astro-icon) - A straight-forward Icon component for Astro.
-- [rimraf](https://www.npmjs.com/package/rimraf) - The UNIX command rm -rf for node.
+- [rimraf](https://www.npmjs.com/package/rimraf) - The UNIX command `rm -rf` for node.
 
 ---
 
@@ -51,24 +51,24 @@ the default language and having:
 
 ```bash
 src
-└-- pages
-    |-- about.astro
-    └-- index.astro
+└── pages
+    ├── about.astro
+    └── index.astro
 ```
 
 👇 Running `npx astro-i18next generate` will create the following pages
 
 ```bash
 src
-└-- pages
-    |-- es
-    |   |-- about.astro
-    |   └-- index.astro
-    |-- fr
-    |   |-- about.astro
-    |   └-- index.astro
-    |-- about.astro
-    └-- index.astro
+└── pages
+    ├── es
+    │   ├── about.astro
+    │   └── index.astro
+    ├── fr
+    │   ├── about.astro
+    │   └── index.astro
+    ├── about.astro
+    └── index.astro
 ```
 
 ---
