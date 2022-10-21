@@ -3,6 +3,18 @@
     "title": "Mon super site web !",
     "description": "Voici la description de mon super site web !"
   },
+  "seo": {
+    "title": "astro-i18next | Translate your Astro websites with i18next",
+    "description": "astro-i18next is an astro integration of i18next + some utility components to help you translate your astro websites!",
+    "ogTitle": "astro-i18next | Translate your Astro website with i18next!",
+    "ogImageAlt": "A test tube placed on the lower left corner spreading out the astro-i18next text with bubbles and country flags."
+  },
+  "navigation": {
+    "home": "Ballina",
+    "services": "Sherbimet",
+    "about": "Rreth Nesh",
+    "contact": "Kontakt"
+  },
   "home": {
     "title": "Bienvenue sur mon super site web !",
     "subtitle": "Ceci est une chaine de charactères <0>plus compliquée</0> à traduire, il y a des <1>éléments html</1>, comme <2>un super lien</2> par exemple !"

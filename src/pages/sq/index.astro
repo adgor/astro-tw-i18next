@@ -1,20 +1,14 @@
 ---
 import LayoutWithHeader from "../../layouts/LayoutWithHeader.astro";
 import { t, changeLanguage } from "i18next";
-import { Trans, LanguageSelector } from "astro-i18next/components";
-import { Icon } from "astro-icon";
+import { Trans } from "astro-i18next/components";
 
 changeLanguage("sq");
 ---
 
 <LayoutWithHeader title="titl" description="desc">
-  <div class="flex">
-    <Icon name="mdi:translate" class="w-5 h-5" />
-    <LanguageSelector showFlag={true} class="my-select-class" />
-  </div>
-
   <h1 class="text-red-400">{t("home.title")}</h1>
-  <p class=" text-gray-900">
+  <p class="text-gray-900">
     <Trans i18nKey="home.subtitle">
       This is a <em>more complex</em> string to translate, mixed with <strong
         >html elements

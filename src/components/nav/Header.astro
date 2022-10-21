@@ -2,12 +2,29 @@
 import { LanguageSelector } from "astro-i18next/components";
 import { Icon } from "astro-icon";
 // import ThemeSwitcher from "~/components/theme-switcher.astro";
-import { navLinks } from "../../config/links";
+import i18next, { t } from "i18next";
+import { localizePath } from "astro-i18next";
+
+const { ...attributes } = Astro.props;
+// TODO: add as a utility function for astro-i18next. (out of scope?)
+const isCurrentPath = (path: string) => {
+  const { pathname } = Astro.url;
+  const currentNormalizedPath = pathname.replace(/\/$/, "");
+  path = path.replace(/\/$/, "");
+  return currentNormalizedPath === path;
+};
+const navigationItems = {
+  "/": t("navigation.home"),
+  "/services/": t("navigation.services"),
+  "/about/": t("navigation.about"),
+  "/contact/": t("navigation.contact"),
+};
 ---
 
 <header>
   <div
     class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8"
+    {...attributes}
   >
     <div class="relative flex items-center justify-between">
       <div class="flex items-center">
@@ -21,16 +38,21 @@ import { navLinks } from "../../config/links";
         </a>
         <ul class="flex items-center hidden space-x-6 lg:flex">
           {
-            navLinks.map(({ title, url }) => (
-              <li>
-                <a
-                  class="font-medium tracking-wide capitalize text-gray-700 transition-colors duration-500 hover:text-gray-900"
-                  href={url}
-                >
-                  {title}
+            Object.keys(navigationItems).map((key) => {
+              let className =
+                " text-gray-700 uppercase text-sm underline-offset-2 tracking-wider decoration-4 font-semibold";
+              if (isCurrentPath(localizePath(key, i18next.language))) {
+                className += " underline decoration-cyan-500";
+              } else {
+                className +=
+                  " opacity-75 hover:opacity-100 hover:underline decoration-gray-300";
+              }
+              return (
+                <a class={className} href={localizePath(key, i18next.language)}>
+                  {navigationItems[key]}
                 </a>
-              </li>
-            ))
+              );
+            })
           }
         </ul>
       </div>
@@ -69,16 +91,23 @@ import { navLinks } from "../../config/links";
       <nav class="">
         <ul class="p-3 space-y-6 border-b border-[#3385FF] md:p-5">
           {
-            navLinks.map(({ title, url }) => (
-              <li>
-                <a
-                  class="text-2xl font-medium tracking-wide capitalize transition duration-500 hover:text-white "
-                  href={url}
-                >
-                  {title}
+            Object.keys(navigationItems).map((key) => {
+              let className =
+                " text-gray-700 uppercase text-sm underline-offset-2 tracking-wider decoration-4 font-semibold";
+              if (isCurrentPath(localizePath(key, i18next.language))) {
+                className += " text-xl tracking-wide underline decoration-cyan-500";
+              } else {
+                className +=
+                  "  text-xl opacity-75 tracking-wide hover:opacity-100 hover:underline decoration-gray-300";
+              }
+              return (
+                <li>
+                <a class={className} href={localizePath(key, i18next.language)}>
+                  {navigationItems[key]}
                 </a>
-              </li>
-            ))
+                </li>
+              );
+            })
           }
         </ul>
         <p

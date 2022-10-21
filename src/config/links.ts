@@ -9,7 +9,7 @@ export const navLinks = [
   },
   {
     title: "about",
-    url: "/#about",
+    url: "/about",
   },
   {
     title: "contact",

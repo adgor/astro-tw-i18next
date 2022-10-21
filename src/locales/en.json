@@ -3,6 +3,18 @@
     "title": "My awesome website!",
     "description": "Here is the description of my awesome website!"
   },
+  "seo": {
+    "title": "astro-i18next | Translate your Astro websites with i18next",
+    "description": "astro-i18next is an astro integration of i18next + some utility components to help you translate your astro websites!",
+    "ogTitle": "astro-i18next | Translate your Astro website with i18next!",
+    "ogImageAlt": "A test tube placed on the lower left corner spreading out the astro-i18next text with bubbles and country flags."
+  },
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact"
+  },
   "home": {
     "title": "Welcome to my awesome website!",
     "subtitle": "This is a <0>more complex</0> string to translate, mixed with <1>html elements</1>, such as a <2>a cool link</2>!"
