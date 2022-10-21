@@ -1,16 +1,31 @@
-<footer aria-labelledby="footer-heading">
-  <h2 id="footer-heading" class="sr-only">Footer</h2>
+---
+import { Icon } from "astro-icon";
+const currentYear = new Date().getFullYear();
+---
 
-  <div class="px-4 py-12 mx-auto s max-w-7xl sm:px-6 lg:px-16">
-    <div class="flex flex-wrap text-slate-400 items-baseline lg:justify-center">
-      Designed & Built by
-      <span class="mt-2 text-sm font-light">
-        <a
-          href="https://admirg.netlify.app/links"
-          class="mx-2 hover:text-slate-500"
-          rel="noopener noreferrer">@admirgorenca</a
-        >
-      </span>
+<footer class="bg-brand-richBlack py-24 text-xs relative">
+  <div
+    class="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8"
+  >
+    <div class="container text-gray-700 grid grid-cols-1 md:grid-cols-3 px-4 text-center">
+      <div class="flex space-x-4 items-center justify-center md:justify-start">
+        <p>kontakt</p>
+      </div>
+      <div
+        class="flex order-first md:order-none items-center justify-center md:mb-0 mb-8">
+     <a
+        href="/"
+        aria-label="Go home"
+        title="Company"
+      >
+        <Icon name="mdi:discord" class="h-10 w-16" />
+      </a>  </div>
+     
+      <div
+        class="flex space-x-4 items-center justify-center mt-2 md:mt-0 md:justify-end text-gray-500"
+      >
+        <p>© {currentYear}. All rights reserved.</p>
+      </div>
     </div>
   </div>
 </footer>
