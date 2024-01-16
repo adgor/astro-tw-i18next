@@ -15,5 +15,8 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require("prettier-plugin-tailwindcss"),
+    require("@headlessui/tailwindcss")({ prefix: "ui" }),
+  ],
 };

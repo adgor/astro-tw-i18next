@@ -23,7 +23,7 @@ const navigationItems = {
 
 <header>
   <div
-    class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8"
+    class="mx-auto px-4 py-5 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8"
     {...attributes}
   >
     <div class="relative flex items-center justify-between">
@@ -32,11 +32,11 @@ const navigationItems = {
           href="/"
           aria-label="Company"
           title="Company"
-          class="inline-flex items-center transition duration-500 text-gray-700 rounded hover:text-gray-900 lg:mr-8 focus:outline-none focus-visible:ring-4 ring-brand"
+          class="inline-flex items-center rounded text-gray-700 ring-brand transition duration-500 hover:text-gray-900 focus:outline-none focus-visible:ring-4 lg:mr-8"
         >
           <Icon name="mdi:discord" class="w-10" />
         </a>
-        <ul class="flex items-center hidden space-x-6 lg:flex">
+        <ul class="flex hidden items-center space-x-6 lg:flex">
           {
             Object.keys(navigationItems).map((key) => {
               let className =
@@ -56,7 +56,7 @@ const navigationItems = {
           }
         </ul>
       </div>
-      <ul class="flex items-center space-x-3 hidden lg:block">
+      <ul class="flex hidden items-center space-x-3 lg:block">
         <LanguageSelector
           class="text-gray-900 font-semibold bg-transparent hover:bg-gray-50 border-2"
         />
@@ -67,7 +67,7 @@ const navigationItems = {
           id="open-btn"
           aria-label="Open Menu"
           title="Open Menu"
-          class="flex items-center transition duration-500 rounded focus:outline-none focus:shadow-outline hover:text-white"
+          class="focus:shadow-outline flex items-center rounded transition duration-500 hover:text-white focus:outline-none"
         >
           <Icon name="mdi:menu" class="h-8" />
         </button>
@@ -77,41 +77,45 @@ const navigationItems = {
   <!-- Mobile menu -->
   <div id="mobile-menu" class="absolute top-0 right-0 z-20 hidden w-1/2">
     <div
-      class="h-screen px-4 py-5 text-right bg-brand text-bkg md:px-24 lg:px-8"
+      class="h-screen bg-brand px-4 py-5 text-right text-bkg md:px-24 lg:px-8"
     >
       <button
         id="close-btn"
         aria-label="Close Menu"
         title="Close Menu"
-        class="mb-4 transition duration-500 rounded focus:outline-none hover:text-white focus:shadow-outline"
+        class="focus:shadow-outline mb-4 rounded transition duration-500 hover:text-white focus:outline-none"
       >
         <Icon name="mdi:close" class="h-10" />
       </button>
 
       <nav class="">
-        <ul class="p-3 space-y-6 border-b border-[#3385FF] md:p-5">
+        <ul class="space-y-6 border-b border-[#3385FF] p-3 md:p-5">
           {
             Object.keys(navigationItems).map((key) => {
               let className =
                 " text-gray-700 uppercase text-sm underline-offset-2 tracking-wider decoration-4 font-semibold";
               if (isCurrentPath(localizePath(key, i18next.language))) {
-                className += " text-xl tracking-wide underline decoration-cyan-500";
+                className +=
+                  " text-xl tracking-wide underline decoration-cyan-500";
               } else {
                 className +=
                   "  text-xl opacity-75 tracking-wide hover:opacity-100 hover:underline decoration-gray-300";
               }
               return (
                 <li>
-                <a class={className} href={localizePath(key, i18next.language)}>
-                  {navigationItems[key]}
-                </a>
+                  <a
+                    class={className}
+                    href={localizePath(key, i18next.language)}
+                  >
+                    {navigationItems[key]}
+                  </a>
                 </li>
               );
             })
           }
         </ul>
         <p
-          class="p-3 tracking-wider transition duration-500 sm:my-3 hover:text-white md:p-5"
+          class="p-3 tracking-wider transition duration-500 hover:text-white sm:my-3 md:p-5"
         >
           <a href="mailto:info@admin.com">info@admin.com</a>
         </p>

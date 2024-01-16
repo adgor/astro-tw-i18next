@@ -2,13 +2,15 @@
 import LayoutWithHeader from "../layouts/LayoutWithHeader.astro";
 import { t, changeLanguage } from "i18next";
 import { Trans } from "astro-i18next/components";
+import Hero  from "../components/Hero"
 
 changeLanguage("en");
 ---
 
 <LayoutWithHeader title="titl" description="desc">
+  <Hero client:load />
   <h1 class="text-red-400">{t("home.title")}</h1>
-  <p class="text-gray-900">
+  <p class="relative p-4 px-8 text-gray-900">
     <Trans i18nKey="home.subtitle">
       This is a <em>more complex</em> string to translate, mixed with <strong
         >html elements
